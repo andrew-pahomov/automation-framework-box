@@ -31,7 +31,6 @@ import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public final class CommonStepsLibrary extends BaseSteps {
 
-
     @И("^перейти к странице '(.*)'$")
     public void changePageTo(String pageName) {
         getPageByTitle(pageName);
@@ -103,7 +102,6 @@ public final class CommonStepsLibrary extends BaseSteps {
     public void executeMethod(String methodName, String arg) {
         executeMethodByName(getSearchContext(), methodName, arg);
     }
-
 
     @И("ввести в поле ввода значение {string}")
     public void typeIntoInput(String text) {

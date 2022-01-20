@@ -9,7 +9,6 @@ import ru.lanit.at.pages.element.UIElement;
 @Title("Кнопка")
 public interface Button extends UIElement, Text.WithText {
 
-
     interface WithButton extends UIElement {
         @FindBy(".//button")
         Button button();

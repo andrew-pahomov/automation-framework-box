@@ -9,6 +9,7 @@ import ru.lanit.at.pages.annotations.WithName;
 
 @Title("Стартовая страница Google")
 public interface GoogleStartPage extends AbstractPage, Button.WithButton {
+
     @Override
     default boolean isOpen() {
         return searchButton().isDisplayed() && searchField().isDisplayed()

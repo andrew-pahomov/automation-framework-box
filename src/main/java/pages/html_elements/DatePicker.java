@@ -12,7 +12,6 @@ public interface DatePicker extends UIElement {
     DateTimeFormatter FORMAT_DD_MM_YYYY = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     DateTimeFormatter MM_YYYY = DateTimeFormatter.ofPattern("MM.yyyy");
 
-
     default void setDate(LocalDate date) {
         setDate(date, FORMAT_DD_MM_YYYY);
     }
@@ -21,7 +20,6 @@ public interface DatePicker extends UIElement {
         clear();
         sendKeys(date.format(formatter));
     }
-
 
     default LocalDate getValue() {
         return getValue(FORMAT_DD_MM_YYYY);

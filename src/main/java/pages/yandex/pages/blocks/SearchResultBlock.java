@@ -10,6 +10,7 @@ import ru.lanit.at.pages.block.AbstractBlockElement;
 @Title("Результат поисковой выдачи")
 public interface SearchResultBlock extends AbstractBlockElement,
         Link.WithLink, Text.WithText {
+
     interface WithSearchResultBlock extends AbstractBlockElement {
         @FindBy("//ul[@aria-label='Результаты поиска']//li[{{ value }}]")
         SearchResultBlock searchResultBlock(@Param("value") String value);

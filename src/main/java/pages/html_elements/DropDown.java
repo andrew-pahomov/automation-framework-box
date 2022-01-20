@@ -1,6 +1,7 @@
 package pages.html_elements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import ru.lanit.at.pages.annotations.Title;
 import ru.lanit.at.pages.element.UIElement;
 
@@ -16,7 +17,6 @@ public interface DropDown extends UIElement {
         this.sendKeys();
     }
 
-
     default void selectMultipleItemsInDropdown(String... selectedLabels) {
         sendKeys(selectedLabels);
     }
@@ -24,7 +24,6 @@ public interface DropDown extends UIElement {
     default String getSelectedInDropdownValue() {
         return getText();
     }
-
 
     interface WithDropDown extends UIElement {
         @FindBy(".//select")

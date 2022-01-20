@@ -21,7 +21,6 @@ public interface Поисковый_блок extends AbstractBlockElement,
         input().sendKeys(name);
     }
 
-
     interface С_поисковым_блоков extends AbstractBlockElement {
         @FindBy("//*[@aria-label='Поиск в интернете']")
         Поисковый_блок searchBlock();

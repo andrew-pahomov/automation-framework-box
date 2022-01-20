@@ -31,6 +31,10 @@ public interface Input extends UIElement {
         @FindBy(".//label[contains(text(),'{{ value }}')]/preceding-sibling::span/input")
         Input input_label(@Param("value") String value);
 
+        @Retry(timeout = 21000, ignoring = NoSuchElementException.class)
+        @FindBy("//input[@placeholder='{{ value }}']")
+        Input input_element(@Param("value") String value);
+
         default Input input() {
             Input i = inputs().filter(AtlasWebElement::isDisplayed).waitUntil(hasSize(greaterThan(0))).get(0);
             return i;
