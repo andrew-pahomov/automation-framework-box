@@ -10,6 +10,7 @@ import ru.lanit.at.pages.element.UIElement;
 
 @Title("Результат поиска с калькулятором")
 public interface GoogleResultPageWithCalc extends AbstractPage {
+
     @Override
     default boolean isOpen() {
         return searchResults().isDisplayed() && calc().isDisplayed();

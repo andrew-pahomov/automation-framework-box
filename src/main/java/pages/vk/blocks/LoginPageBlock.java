@@ -9,7 +9,7 @@ import ru.lanit.at.pages.block.AbstractBlockElement;
 
 @Title("Блок логина")
 public interface LoginPageBlock extends AbstractBlockElement,
-        Input.WithInput, Button.WithButton{
+        Input.WithInput, Button.WithButton {
 
     default void ввести_логин(String data) {
         input_element("Телефон или email").sendKeys(data);
@@ -18,6 +18,14 @@ public interface LoginPageBlock extends AbstractBlockElement,
     default void ввести_пароль(String data) {
         input_element("Пароль").sendKeys(data);
     }
+
+    @WithName("Поле ввода логина")
+    @FindBy("//input[@id='index_email']")
+    Input loginField();
+
+    @WithName("Поле ввода пароля")
+    @FindBy("//input[@id='index_pass']")
+    Input passwordField();
 
     @WithName("Кнопка логина")
     @FindBy("descendant::button[@id='index_login_button']")

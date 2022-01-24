@@ -7,6 +7,7 @@ import cucumber.api.java.ru.То;
 import cucumber.api.java.ru.Тогда;
 import io.cucumber.datatable.DataTable;
 import io.qameta.atlas.webdriver.AtlasWebElement;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import pages.html_elements.Button;
 import pages.html_elements.CheckBox;
@@ -231,7 +232,7 @@ public final class CommonStepsLibrary extends BaseSteps {
         softAssert().assertEquals(expectedLinkAddress, actualLinkAddress, "Адрес ссылки '" + actualLinkAddress + "'. Не совпадает с ожидаемым значением: '" + expectedLinkAddress + "'");
     }
 
-    @И("в выпадающем списке  выбрать значение {string}")
+    @И("в выпадающем списке выбрать значение {string}")
     public void selectInDropdown(String value) {
         ((DropDown) getUIElement(DropDown.class)).selectByValue(value);
     }
