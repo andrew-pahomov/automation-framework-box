@@ -1,12 +1,14 @@
 package utils.data.helpers;
 
 
+import com.github.javafaker.Faker;
 import ru.lanit.at.context.Context;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -331,6 +333,11 @@ public class DataRandomGenerator {
 
         ((Map<String, Object>) Context.getInstance().getBean("dataKeeper")).put(key, value);
         return value;
+    }
+
+    public synchronized static String getCityName(String locale){
+        Faker faker = new Faker(new Locale(locale));
+        return faker.address().city();
     }
 
 

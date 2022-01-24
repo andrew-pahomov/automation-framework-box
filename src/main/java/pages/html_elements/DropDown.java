@@ -23,10 +23,18 @@ public interface DropDown extends UIElement {
         return this.findElement(By.xpath(".//input[@class='resultField']")).getAttribute("value");
     }
 
-    default void setElementInList(int index) {
-        WebElement element = this.getWrappedElement();
+    default void setElementInListByIndex(int index) {
         List<WebElement> elementList = this.findElements(By.xpath(".//div[@class='results_container']//li"));
         elementList.stream().skip(index).findFirst().get().click();
+    }
+
+    default void setListElementByValue(String value) {
+        List<WebElement> elementList = this.findElements(By.xpath(".//div[@class='results_container']//li"));
+        for (WebElement element:elementList){
+            if (element.getAttribute("val").equals(value)){
+                element.click();
+            }
+        }
     }
 
     default void selectByIndex(int index) {
