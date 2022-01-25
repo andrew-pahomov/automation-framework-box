@@ -9,7 +9,7 @@ import ru.lanit.at.pages.annotations.Title;
 import ru.lanit.at.pages.annotations.WithName;
 import ru.lanit.at.pages.block.AbstractBlockElement;
 
-@Title("Блок редактировани профиля")
+@Title("Блок редактирования профиля")
 public interface ProfileEditBlock extends AbstractBlockElement, Link.WithLink, DropDown.WithDropDown, Button.WithButton,
         Input.WithInput {
 

@@ -60,7 +60,7 @@ public final class BlocksCommonStepsLibrary extends BaseSteps {
     }
 
 
-    @И("проверить что отображется блок")
+    @И("проверить что отображается блок")
     public void checkBlockVisible() {
         getCurrentBlock().should(DisplayedMatcher.displayed(), 10);
     }

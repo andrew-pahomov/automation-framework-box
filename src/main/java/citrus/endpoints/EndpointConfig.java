@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import ru.lanit.at.Config;
 import utils.allure.AllureHelper;
 
-
 @Configuration
 public class EndpointConfig {
     /**
@@ -36,6 +35,23 @@ public class EndpointConfig {
                 .build();
     }
 
+    @Bean(name = "vk")
+    public HttpClient vk() {
+        return CitrusEndpoints
+                .http()
+                .client()
+                .requestUrl("https://api.vk.com/method/")
+                .build();
+    }
+
+    @Bean(name = "vk")
+    public static HttpClient vk(String url) {
+        return CitrusEndpoints
+                .http()
+                .client()
+                .requestUrl(url)
+                .build();
+    }
 
     @Bean(name = "messageTracingTestListener")
     public MessageTracingTestListener messageTracingTestListener() {

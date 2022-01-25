@@ -7,15 +7,15 @@ import ru.lanit.at.pages.annotations.Title;
 import ru.lanit.at.pages.annotations.WithName;
 import ru.lanit.at.pages.block.AbstractBlockElement;
 
-@Title("Блок список")
-public interface ListBlock extends AbstractBlockElement, DropDown.WithDropDown {
+@Title("Блок список по имени")
+public interface ListBlockByName extends AbstractBlockElement, DropDown.WithDropDown {
 
-    @WithName("Список")
+    @WithName("Список по имени")
     @FindBy(".//td[@class='selector']/../../../..")
     DropDown dayList();
 
-    interface WithDayListBlock extends AbstractBlockElement {
-        @FindBy(".//div[@id='container{{ value }}']")
-        ListBlock dayListBlock(@Param("value") String value);
+    interface WithListBlockByName extends AbstractBlockElement {
+        @FindBy("//div[text()='{{value}}']/following-sibling::div/div")
+        ListBlockByName dayListBlockByName(@Param("value") String value);
     }
 }

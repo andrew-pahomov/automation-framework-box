@@ -1,9 +1,18 @@
 package utils.data.helpers;
 
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.github.javafaker.Faker;
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.InvalidJsonException;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
+import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
+import io.qameta.allure.Allure;
+import org.apache.commons.lang3.StringUtils;
 import ru.lanit.at.context.Context;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -14,7 +23,9 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Генератор рандомных данных */
+/**
+ * Генератор рандомных данных
+ */
 public class DataRandomGenerator {
     public static final String DATE = ".*((?:(?:дата)!)\\(([^)]+)\\)).*";  // дата!(сегодня)
     public static final String RANDOM = ".*((?:(?:случайно|символы)!|\\$)\\(([^)]+)\\)).*"; // случайно!(25)  символы!(25 кириллических)  $(25 цифр)
@@ -46,15 +57,15 @@ public class DataRandomGenerator {
     public static final String DIG_N = "123456789";
     public static final String CYR = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
     public static final String Cyr = CYR + cyr;
+    public static final String main_ru = Cyr + DIG + "^_.-'\"#№@»`«&,()+/[]:";
+    public static final String main_fio = Cyr;
     public static final String LAT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String Lat = lat + LAT;
     public static final String ALL = Cyr + Lat + DIG;
     public static final String CyrLatDIG = Cyr + Lat + DIG;
-    public static final String main_ru = Cyr + DIG + "^_.-'\"#№@»`«&,()+/[]:";
-    public static final String main_ru_n = Lat + "~%${}?\\|=;*";
     public static final String main = CyrLatDIG + "<>+:;*^_.-'\"#№@»`«&,!()/[]";
+    public static final String main_ru_n = Lat + "~%${}?\\|=;*";
     public static final String main_n = "~$%{}?\\|=";
-    public static final String main_fio = Cyr;
     private static final String romanianDigits = "IXVCMD";
     private static final String CYR_MARK = "КИР";
     private static final String cyr_MARK = "кир";
@@ -335,10 +346,8 @@ public class DataRandomGenerator {
         return value;
     }
 
-    public synchronized static String getCityName(String locale){
+    public synchronized static String getCityName(String locale) {
         Faker faker = new Faker(new Locale(locale));
         return faker.address().city();
     }
-
-
 }
